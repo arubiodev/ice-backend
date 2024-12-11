@@ -13,8 +13,8 @@ app.use(cors()); // Enable Cross-Origin Resource Sharing (CORS)
 const sentimentAnalyzer = new sentiment();
 
 // Word lists
-const positiveWords = ["kekw", "kekleo", "omegalul", "clap", "cheer", "laugh", "pog", "haha","lol","lul","WW"];
-const negativeWords = ["patrick","yoink","pussy", "angry", "patrik","simp", "disapoint", "nontent", "shit", "fuck", "gay", "quit", "rigged", "scam", "boring", "kick", "leech", "fake", "dumb", "retard", "bs", "wtf", "pressed", "beta", "scam", "rob", "pdf", "pedo"];
+const positiveWords = ["kekw", "kekleo", "omegalul", "clap", "cheer", "laugh", "pog", "haha","lol","lul","ww","goat"];
+const negativeWords = ["patrick","yoink","pussy","police", "angry","zz", "patrik","broken","simp","lll","bot", "disapoint","tent", "nontent", "shit","**","croag","end","ass","bs", "fuck", "gay", "quit", "rigged", "scam", "boring", "kick", "leech", "fake", "dumb", "retard", "bs", "wtf", "pressed", "beta", "scam", "rob", "pdf", "pedo"];
 
 // Analyze the message
 app.post('/analyze', (req, res) => {
