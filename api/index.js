@@ -14,7 +14,7 @@ const sentimentAnalyzer = new sentiment();
 
 // Word lists
 const positiveWords = ["kekw", "kekleo", "omegalul","nodders", "clap", "cheer", "laugh", "pog", "haha","lol","lul","ww","goat","cat","kat"];
-const negativeWords = ["patrick","yoink","pussy","sleep","mf","police","shut", "angry","zz", "patrik","broken","simp","lll","bot","nigg","stfu","cheat", "nontent","tent", "disapoint", "shit","**","croag","end","ass","bs", "fuck", "gay", "quit", "rigged", "scam", "boring", "kick", "leech", "fake", "dumb", "retard", "bs", "wtf", "pressed", "beta", "scam", "rob", "pdf", "pedo"];
+const negativeWords = ["patrick","yoink","pussy","sleep","mf","police","shut", "angry","zz","lame", "patrik","broken","simp","lll","bot","nigg","stfu","cheat", "nontent","tent", "disapoint", "shit","**","croag","end","ass","bs", "fuck", "gay", "quit", "rigged", "scam", "boring", "kick", "leech", "fake", "dumb", "retard", "bs", "wtf", "pressed", "beta", "scam", "rob", "pdf", "pedo"];
 
 // Analyze the message
 app.post('/analyze', (req, res) => {
