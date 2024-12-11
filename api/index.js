@@ -12,6 +12,11 @@ app.use(cors()); // Enable Cross-Origin Resource Sharing (CORS)
 
 const sentimentAnalyzer = new sentiment();
 
+// Word lists
+const positiveWords = ["kekw", "kekleo", "omegalul", "clap", "cheer", "laugh", "pog", "lulw", "haha"];
+const negativeWords = ["patrick", "angry", "patrik", "disapoint", "nontent", "shit", "fuck", "gay", "quit", "rigged", "scam", "boring", "kick", "leech", "fake", "dumb", "retard", "bs", "wtf", "pressed", "beta", "scam", "rob", "pdf", "pedo"];
+
+// Analyze the message
 app.post('/analyze', (req, res) => {
   const { text } = req.body;
 
@@ -19,13 +24,25 @@ app.post('/analyze', (req, res) => {
     return res.status(400).json({ error: 'No text provided' });
   }
 
-  const result = sentimentAnalyzer.analyze(text);
   let classification = 'Neutral';
 
-  if (result.score > 0) {
-    classification = 'Positive';
-  } else if (result.score < 0) {
+  // Normalize the message
+  const normalizedMessage = text.toLowerCase();
+
+  // Check for positive or negative words first
+  if (negativeWords.some((word) => normalizedMessage.includes(word))) {
     classification = 'Negative';
+  } else if (positiveWords.some((word) => normalizedMessage.includes(word))) {
+    classification = 'Positive';
+  } else {
+    // If no match, use sentiment analysis
+    const result = sentimentAnalyzer.analyze(text);
+
+    if (result.score > 0) {
+      classification = 'Positive';
+    } else if (result.score < 0) {
+      classification = 'Negative';
+    }
   }
 
   return res.json({ sentiment: classification });
